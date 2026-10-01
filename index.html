@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>GyrosGO – Nyitunk! Gyöngyös, Jókai Mór utca 38.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700;800&family=Caveat+Brush&family=Rubik+Dirt&display=swap">
+<style>
+html,body{margin:0;background:#0b0a09;}
+*{box-sizing:border-box;}
+a{color:#FFC21A;text-decoration:none;}
+a:hover{color:#ffd65c;}
+@keyframes gg-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes gg-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes gg-marquee-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes gg-throb{0%,100%{scale:1}50%{scale:1.1}}
+@keyframes gg-wiggle{0%,100%{rotate:0deg}50%{rotate:-4deg}}
+@keyframes gg-spin{to{transform:rotate(360deg)}}
+@keyframes gg-float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes gg-drop{0%{opacity:0;transform:translateY(-140px) rotate(-14deg) scale(1.3)}100%{opacity:1;transform:none}}
+@keyframes gg-wave{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(-3deg)}}
+@keyframes gg-ember{0%{transform:translate(0,0);opacity:0}12%{opacity:1}100%{transform:translate(var(--dx),-620px);opacity:0}}
+@keyframes gg-tick{0%{transform:translateY(-30%);opacity:.2}100%{transform:none;opacity:1}}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="min-height:100vh;background:#0b0a09;color:#f4efe6;font-family:'Barlow Condensed',sans-serif;overflow-x:hidden;padding-bottom:{{ bottomPad }};">
+
+  <sc-if value="{{ showDemoBar }}" hint-placeholder-val="{{ true }}">
+    <a href="tel:+36704268988" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;padding:9px 16px;background:#f4efe6;color:#0b0a09;font-size:16px;font-weight:600;letter-spacing:.02em;text-align:center;">
+      <span style="background:#0b0a09;color:#f4efe6;padding:2px 8px;font-weight:800;letter-spacing:.12em;font-size:13px;">DEMÓ</span>
+      <span>Ez a menő honlap lehetne a gyrosgo.hu weboldala is! Hívj a <strong style="text-decoration:underline;">70 426 89 88</strong> számon, hogy megbeszéljük a részleteket!</span>
+    </a>
+  </sc-if>
+
+  <div style="position:sticky;top:0;z-index:30;display:flex;justify-content:center;align-items:center;gap:10px;padding:11px 16px;background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:clamp(16px,2.2vw,20px);letter-spacing:.04em;text-transform:uppercase;text-align:center;box-shadow:0 4px 0 #0b0a09;">
+    {{ statusDot }}
+    <span>{{ statusText }}</span>
+  </div>
+
+  <header style="position:relative;isolation:isolate;max-width:1240px;margin:0 auto;padding:clamp(36px,6vw,72px) clamp(18px,4vw,40px) clamp(40px,6vw,64px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(24px,4vw,48px);">
+    {{ embers }}
+    <div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:22px;container-type:inline-size;">
+      <div style="font-family:'Caveat Brush',cursive;font-size:clamp(28px,3.4vw,40px);color:#f4efe6;transform:rotate(-4deg);transform-origin:left;line-height:1;">Finom, Gyors, Go!</div>
+      <div style="font-weight:700;font-size:clamp(15px,1.6vw,19px);letter-spacing:.14em;display:flex;flex-wrap:wrap;gap:6px 14px;">
+        <span>GYROS</span><span style="color:#FFC21A;">•</span><span>SMASH BURGER</span><span style="color:#FFC21A;">•</span><span>HASÁB</span><span style="color:#FFC21A;">•</span><span>ÜDÍTŐ</span>
+      </div>
+      <h1 style="margin:0;font-family:'Rubik Dirt',sans-serif;font-weight:400;font-size:clamp(48px,15.5cqw,168px);white-space:nowrap;line-height:.88;letter-spacing:-.01em;color:#f4efe6;transform:rotate(-2deg);">{{ nyitunk }}</h1>
+      <div data-anim="gg-wiggle 3.2s ease-in-out infinite" style="align-self:flex-start;background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:clamp(28px,4.4vw,52px);letter-spacing:.02em;padding:6px 28px 8px;transform:rotate(-1.5deg);clip-path:polygon(1% 14%,4% 0,52% 6%,97% 2%,100% 20%,98% 86%,95% 100%,48% 94%,3% 100%,0 80%);">♣ NYEREMÉNYJÁTÉK ♣</div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px 28px;margin-top:8px;font-family:'Anton',sans-serif;font-size:clamp(19px,2.2vw,26px);line-height:1.1;letter-spacing:.02em;">
+        <div style="display:flex;align-items:center;gap:10px;"><span style="width:12px;height:12px;background:#FFC21A;transform:rotate(45deg);flex:none;"></span><span>OKTÓBER 2.<br>PÉNTEK</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><span style="width:12px;height:12px;background:#FFC21A;transform:rotate(45deg);flex:none;"></span><span>11:00-TÓL</span></div>
+        <div style="display:flex;align-items:center;gap:10px;"><span style="width:12px;height:12px;background:#FFC21A;transform:rotate(45deg);flex:none;"></span><span>GYÖNGYÖS,<br>JÓKAI MÓR UTCA 38.</span></div>
+      </div>
+      <sc-if value="{{ showCountdown }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:6px;">
+          <span style="font-family:'Caveat Brush',cursive;font-size:28px;color:#FFC21A;">Nyitásig még:</span>
+          <div style="display:flex;gap:8px;">
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:72px;background:#171513;border:2px solid #FFC21A;padding:6px 10px 4px;"><span style="font-family:'Anton',sans-serif;font-size:36px;line-height:1;">{{ cd.h }}</span><span style="font-size:13px;font-weight:700;letter-spacing:.14em;color:#a39b8f;">ÓRA</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:72px;background:#171513;border:2px solid #FFC21A;padding:6px 10px 4px;"><span style="font-family:'Anton',sans-serif;font-size:36px;line-height:1;">{{ cd.m }}</span><span style="font-size:13px;font-weight:700;letter-spacing:.14em;color:#a39b8f;">PERC</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;min-width:72px;background:#E3261C;border:2px solid #E3261C;padding:6px 10px 4px;overflow:hidden;">{{ cdSec }}<span style="font-size:13px;font-weight:700;letter-spacing:.14em;color:#fff;">MP</span></div>
+          </div>
+        </div>
+      </sc-if>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;">
+        <a href="#akcio" style="background:#E3261C;color:#fff;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.04em;padding:14px 26px;transform:rotate(-1deg);transition:transform .2s;" style-hover="transform:rotate(-3deg) scale(1.06);color:#fff;">NYITÁSI AKCIÓ ↓</a>
+        <a href="#itt" style="border:2px solid #f4efe6;color:#f4efe6;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.04em;padding:12px 24px;transition:transform .2s;" style-hover="transform:rotate(1deg) scale(1.06);color:#FFC21A;border-color:#FFC21A;">ITT TALÁLSZ MEG</a>
+        <a href="https://www.facebook.com/profile.php?id=61594434387252" target="_blank" rel="noopener" style="background:#1877F2;color:#fff;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.04em;padding:14px 22px;transition:transform .2s;" style-hover="transform:rotate(-1deg) scale(1.06);color:#fff;">FACEBOOK ↗</a>
+      </div>
+    </div>
+    <div style="flex:1 1 340px;min-width:0;position:relative;display:flex;justify-content:center;">
+      {{ logoArt }}
+      <div data-anim="gg-wiggle 2.4s ease-in-out infinite" style="position:absolute;top:2%;right:0;background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:clamp(15px,1.7vw,19px);line-height:1.15;text-align:center;padding:14px 16px;transform:rotate(8deg);clip-path:polygon(3% 6%,96% 0,100% 92%,6% 100%);">FRISS<br>ALAPANYAGOK<br>•<br>MINŐSÉGI<br>ÍZEK ♥</div>
+    </div>
+  </header>
+
+  <div style="background:#E3261C;transform:rotate(-1.5deg);margin:0 -20px;padding:14px 0;border-top:3px solid #0b0a09;border-bottom:3px solid #0b0a09;overflow:hidden;">
+    {{ marquee }}
+  </div>
+
+  <section id="akcio" style="max-width:1240px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(18px,4vw,40px) 40px;">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;margin-bottom:36px;">
+      <h2 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(40px,6vw,72px);line-height:1;letter-spacing:.01em;">NYITÁSI AKCIÓ <span style="color:#FFC21A;">– CSAK OKTÓBER 2-ÁN!</span></h2>
+      <sc-if value="{{ promoExpired }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size:18px;font-weight:600;color:#bdb5a8;">A nyitási akció október 2-án volt érvényes.</span>
+      </sc-if>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px;">
+
+      <div>
+        <div data-card="0" onMouseMove="{{ cardMove }}" onMouseLeave="{{ cardLeave }}" style="position:relative;background:#171513;border:2px solid #2a2622;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s;will-change:transform;height:100%;display:flex;flex-direction:column;">
+          <div style="aspect-ratio:350/190;overflow:hidden;background:#0b0a09;"><img data-zoom="" src="assets/pita.png" alt="Gyros pita" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1);"></div>
+          <div data-anim="gg-throb 1.6s ease-in-out infinite" style="position:absolute;top:-16px;right:-12px;width:96px;height:96px;border-radius:50%;background:#E3261C;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Anton',sans-serif;font-size:26px;line-height:1;transform:rotate(12deg);box-shadow:0 0 0 4px #0b0a09;"><span>−600</span><span style="font-size:16px;">Ft</span></div>
+          <div style="padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1;">
+            <h3 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:32px;letter-spacing:.02em;">GYROS PITA</h3>
+            <p style="margin:0;font-size:19px;font-weight:500;line-height:1.3;color:#cfc7ba;text-wrap:pretty;">Puha pita, omlós gyroshús, paradicsom, lilahagyma, saláta, fehér öntet.</p>
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px;">
+              <span style="background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:42px;line-height:1;padding:6px 18px 8px;transform:rotate(-2deg);clip-path:polygon(2% 10%,97% 0,100% 88%,4% 100%);">1 290 Ft</span>
+              <span style="font-size:20px;font-weight:600;color:#a39b8f;"><s style="position:relative;text-decoration:none;color:#f4efe6;opacity:.8;">1 890 Ft<span data-strike="" style="position:absolute;left:-3px;right:-3px;top:52%;height:3px;background:#E3261C;transform:rotate(-8deg);transform-origin:left;"></span></s> helyett</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div data-card="1" onMouseMove="{{ cardMove }}" onMouseLeave="{{ cardLeave }}" style="position:relative;background:#171513;border:2px solid #2a2622;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s;will-change:transform;height:100%;display:flex;flex-direction:column;">
+          <div style="aspect-ratio:350/190;overflow:hidden;background:#0b0a09;"><img data-zoom="" src="assets/tal.png" alt="Gyros tál" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1);"></div>
+          <div data-anim="gg-throb 1.6s ease-in-out infinite" style="position:absolute;top:-16px;right:-12px;width:96px;height:96px;border-radius:50%;background:#E3261C;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Anton',sans-serif;font-size:24px;line-height:1;transform:rotate(-10deg);box-shadow:0 0 0 4px #0b0a09;"><span>−1000</span><span style="font-size:16px;">Ft</span></div>
+          <div style="padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1;">
+            <h3 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:32px;letter-spacing:.02em;">GYROS TÁL</h3>
+            <p style="margin:0;font-size:19px;font-weight:500;line-height:1.3;color:#cfc7ba;text-wrap:pretty;">Gyroshús hasábburgonyán, friss saláta, lilakáposzta, paradicsom, fehér öntet.</p>
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px;">
+              <span style="background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:42px;line-height:1;padding:6px 18px 8px;transform:rotate(1.5deg);clip-path:polygon(0 4%,96% 10%,100% 100%,3% 92%);">2 290 Ft</span>
+              <span style="font-size:20px;font-weight:600;color:#a39b8f;"><s style="position:relative;text-decoration:none;color:#f4efe6;opacity:.8;">3 290 Ft<span data-strike="" style="position:absolute;left:-3px;right:-3px;top:52%;height:3px;background:#E3261C;transform:rotate(-8deg);transform-origin:left;"></span></s> helyett</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div data-card="2" onMouseMove="{{ cardMove }}" onMouseLeave="{{ cardLeave }}" style="position:relative;background:#171513;border:2px solid #2a2622;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s;will-change:transform;height:100%;display:flex;flex-direction:column;">
+          <div style="aspect-ratio:350/190;overflow:hidden;background:#0b0a09;"><img data-zoom="" src="assets/burger.png" alt="Classic / House Smash burger" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1);"></div>
+          <div data-anim="gg-throb 1.6s ease-in-out infinite" style="position:absolute;top:-16px;right:-12px;width:96px;height:96px;border-radius:50%;background:#E3261C;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Anton',sans-serif;font-size:26px;line-height:1;transform:rotate(8deg);box-shadow:0 0 0 4px #0b0a09;"><span>−500</span><span style="font-size:16px;">Ft</span></div>
+          <div style="padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1;">
+            <h3 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:32px;letter-spacing:.02em;">CLASSIC / HOUSE SMASH</h3>
+            <p style="margin:0;font-size:19px;font-weight:500;line-height:1.3;color:#cfc7ba;text-wrap:pretty;">Dupla, ropogósra sütött smash marhahús, olvadt cheddar, saláta, fényes briós buci.</p>
+            <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px;">
+              <span style="background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:42px;line-height:1;padding:6px 18px 8px;transform:rotate(-1deg);clip-path:polygon(3% 0,100% 8%,97% 96%,0 90%);">1 490 Ft</span>
+              <span style="font-size:20px;font-weight:600;color:#a39b8f;"><s style="position:relative;text-decoration:none;color:#f4efe6;opacity:.8;">1 990 Ft<span data-strike="" style="position:absolute;left:-3px;right:-3px;top:52%;height:3px;background:#E3261C;transform:rotate(-8deg);transform-origin:left;"></span></s> helyett</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="jatek" style="max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(18px,4vw,40px);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px;">
+      <div data-reveal="0" style="background:#FFC21A;color:#0b0a09;padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;gap:18px;clip-path:polygon(0 2%,98% 0,100% 97%,2% 100%);">
+        <div style="align-self:flex-start;background:#E3261C;color:#fff;font-family:'Anton',sans-serif;font-size:clamp(26px,3vw,34px);padding:6px 18px 8px;transform:rotate(-2deg);">NYEREMÉNYJÁTÉK!</div>
+        <h2 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(46px,6vw,76px);line-height:.95;">3 NYERTEST<br>SORSOLUNK KI!</h2>
+        <div style="font-size:21px;font-weight:700;">Mindhárom nyertes nyereménye:</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;font-family:'Anton',sans-serif;font-size:clamp(24px,2.8vw,32px);line-height:1.05;">
+          <span>1 szabadon választott gyros</span>
+          <span style="width:44px;height:44px;border-radius:50%;background:#0b0a09;color:#FFC21A;display:flex;align-items:center;justify-content:center;font-size:30px;flex:none;">+</span>
+          <span>1 szabadon választott smash burger</span>
+        </div>
+        <div style="margin-top:auto;display:flex;align-items:center;gap:12px;border:3px solid #0b0a09;padding:12px 18px;font-size:22px;font-weight:700;">
+          <span style="width:12px;height:12px;background:#0b0a09;transform:rotate(45deg);flex:none;"></span>
+          <span>Sorsolás: október 4., vasárnap este</span>
+        </div>
+        <a href="https://www.facebook.com/profile.php?id=61594434387252" target="_blank" rel="noopener" onClick="{{ confetti }}" style="display:flex;justify-content:center;align-items:center;gap:10px;background:#0b0a09;color:#FFC21A;font-family:'Anton',sans-serif;font-size:24px;letter-spacing:.04em;padding:16px 22px;transition:transform .2s;" style-hover="transform:scale(1.03) rotate(-1deg);color:#FFC21A;">RÉSZT VESZEK A FACEBOOKON ↗</a>
+      </div>
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:18px;">
+        <h3 style="margin:0;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(32px,4vw,44px);letter-spacing:.02em;"><span style="background:#FFC21A;color:#0b0a09;padding:2px 14px;">A RÉSZVÉTELHEZ:</span></h3>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:18px;background:#171513;border:2px solid #2a2622;padding:16px 20px;">
+            <span style="font-family:'Anton',sans-serif;font-size:40px;color:#FFC21A;line-height:1;width:34px;flex:none;">1</span>
+            <span style="font-size:22px;font-weight:600;line-height:1.2;">Kövesd a <a href="https://www.facebook.com/profile.php?id=61594434387252" target="_blank" rel="noopener" style="color:#FFC21A;text-decoration:underline;">GyrosGO oldalát</a></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;background:#171513;border:2px solid #2a2622;padding:16px 20px;">
+            <span style="font-family:'Anton',sans-serif;font-size:40px;color:#FFC21A;line-height:1;width:34px;flex:none;">2</span>
+            <span style="font-size:22px;font-weight:600;line-height:1.2;">Kedveld ezt a bejegyzést</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;background:#171513;border:2px solid #2a2622;padding:16px 20px;">
+            <span style="font-family:'Anton',sans-serif;font-size:40px;color:#FFC21A;line-height:1;width:34px;flex:none;">3</span>
+            <span style="font-size:22px;font-weight:600;line-height:1.2;">Oszd meg ezt a bejegyzést</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:18px;background:#171513;border:2px solid #2a2622;padding:16px 20px;">
+            <span style="font-family:'Anton',sans-serif;font-size:40px;color:#FFC21A;line-height:1;width:34px;flex:none;">4</span>
+            <span style="font-size:22px;font-weight:600;line-height:1.2;text-wrap:pretty;">Kommentben jelöld meg azt, akivel együtt ennél nálunk egy jót!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="facebook" style="max-width:1240px;margin:0 auto;padding:clamp(32px,5vw,64px) clamp(18px,4vw,40px);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px;align-items:center;">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:18px;">
+        <div style="align-self:flex-start;background:#1877F2;color:#fff;font-family:'Anton',sans-serif;font-size:18px;letter-spacing:.12em;padding:4px 12px;transform:rotate(-2deg);">FACEBOOK</div>
+        <h2 style="margin:0;font-family:'Rubik Dirt',sans-serif;font-weight:400;font-size:clamp(44px,6vw,76px);line-height:.95;">KÖVESS<br>MINKET!</h2>
+        <p style="margin:0;font-size:22px;font-weight:500;line-height:1.3;color:#cfc7ba;max-width:460px;text-wrap:pretty;">A nyereményjáték bejegyzését a GyrosGO Facebook-oldalán találod. Kövesd, kedveld, oszd meg, és jelöld meg, akivel együtt ennél!</p>
+        <a href="https://www.facebook.com/profile.php?id=61594434387252" target="_blank" rel="noopener" onClick="{{ confetti }}" style="align-self:flex-start;background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.04em;padding:14px 26px;clip-path:polygon(2% 8%,98% 0,100% 90%,0 100%);transition:transform .2s;" style-hover="transform:scale(1.06) rotate(-1deg);color:#0b0a09;">GYROSGO A FACEBOOKON ↗</a>
+      </div>
+      <div data-reveal="1" style="display:flex;justify-content:center;">
+        <div onMouseMove="{{ tiltMove }}" onMouseLeave="{{ tiltLeave }}" style="width:100%;max-width:500px;background:#f4efe6;border:3px solid #FFC21A;box-shadow:10px 10px 0 #E3261C;transition:transform .25s ease-out;">
+          <iframe title="GyrosGO Facebook-oldal" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61594434387252&amp;tabs=timeline&amp;width=500&amp;height=560&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;locale=hu_HU" style="display:block;width:100%;height:560px;border:0;overflow:hidden;" scrolling="no" allowfullscreen="true" allow="encrypted-media; clipboard-write; picture-in-picture; web-share"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="itt" style="max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(18px,4vw,40px);">
+    <h2 style="margin:0 0 32px;font-family:'Rubik Dirt',sans-serif;font-weight:400;font-size:clamp(48px,7vw,88px);line-height:.95;transform:rotate(-1.5deg);transform-origin:left;">ITT TALÁLSZ MEG</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:28px;">
+
+      <a data-reveal="0" href="https://www.google.com/maps/search/?api=1&amp;query=Gy%C3%B6ngy%C3%B6s%2C%20J%C3%B3kai%20M%C3%B3r%20utca%2038" target="_blank" rel="noopener" style="display:flex;flex-direction:column;color:#0b0a09;">
+        <div onMouseMove="{{ tiltMove }}" onMouseLeave="{{ tiltLeave }}" style="position:relative;flex:1;min-height:340px;background:#efe6d2;border:3px solid #FFC21A;overflow:hidden;transition:transform .25s ease-out;">
+          <div style="position:absolute;left:-10%;right:-10%;top:28%;height:14px;background:#fff;transform:rotate(-8deg);border-top:2px solid #d6cab1;border-bottom:2px solid #d6cab1;"></div>
+          <div style="position:absolute;left:-10%;right:-10%;top:72%;height:10px;background:#fff;transform:rotate(4deg);border-top:2px solid #d6cab1;border-bottom:2px solid #d6cab1;"></div>
+          <div style="position:absolute;top:-10%;bottom:-10%;left:22%;width:10px;background:#fff;transform:rotate(10deg);border-left:2px solid #d6cab1;border-right:2px solid #d6cab1;"></div>
+          <div style="position:absolute;top:-10%;bottom:-10%;left:52%;width:26px;background:#FFC21A;transform:rotate(-14deg);border-left:3px solid #0b0a09;border-right:3px solid #0b0a09;"></div>
+          <div style="position:absolute;top:-10%;bottom:-10%;left:82%;width:10px;background:#fff;transform:rotate(6deg);border-left:2px solid #d6cab1;border-right:2px solid #d6cab1;"></div>
+          <div style="position:absolute;left:6%;top:6%;width:22%;height:16%;background:#cfe0b4;border-radius:4px;"></div>
+          <div style="position:absolute;right:4%;bottom:6%;width:20%;height:14%;background:#cfe0b4;border-radius:4px;"></div>
+          <div style="position:absolute;left:58%;top:12%;font-family:'Caveat Brush',cursive;font-size:22px;transform:rotate(-14deg);white-space:nowrap;">Jókai Mór u.</div>
+          <div style="position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-56px 0 0 -10px;background:#E3261C;border:3px solid #0b0a09;border-radius:50% 50% 50% 0;transform:rotate(-45deg);"></div>
+          <div style="position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-40px 0 0 6px;background:#fff;border-radius:50%;"></div>
+          <div style="position:absolute;left:50%;top:50%;margin:-2px 0 0 -40px;background:#0b0a09;color:#FFC21A;font-family:'Anton',sans-serif;font-size:18px;padding:4px 10px;white-space:nowrap;">GyrosGO · 38.</div>
+          <div style="position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0b0a09;color:#f4efe6;padding:14px 18px;">
+            <span style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.02em;">Gyöngyös, Jókai Mór utca 38.</span>
+            <span style="font-family:'Anton',sans-serif;font-size:16px;color:#FFC21A;white-space:nowrap;">TÉRKÉP ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:#FFC21A;color:#0b0a09;padding:18px 22px;transform:rotate(-1deg);clip-path:polygon(0 4%,99% 0,100% 94%,1% 100%);">
+          <div style="font-family:'Anton',sans-serif;font-size:clamp(28px,3vw,36px);line-height:1.02;">OKTÓBER 2-TŐL<br>NYITVA MINDENNAP!</div>
+          <div style="margin-top:10px;display:inline-flex;background:#0b0a09;color:#FFC21A;font-family:'Anton',sans-serif;font-size:22px;padding:4px 14px;">NYITÁS: 11:00</div>
+        </div>
+        <div style="display:flex;flex-direction:column;border:2px solid #2a2622;">
+          <sc-for list="{{ days }}" as="day" hint-placeholder-count="7">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 18px;border-bottom:1px solid #2a2622;background:{{ day.bg }};color:{{ day.color }};font-size:21px;font-weight:{{ day.weight }};">
+              <span style="display:flex;align-items:center;gap:10px;">{{ day.name }}<sc-if value="{{ day.isToday }}" hint-placeholder-val="{{ false }}"><span style="background:#0b0a09;color:#FFC21A;font-family:'Anton',sans-serif;font-size:13px;letter-spacing:.08em;padding:2px 7px;">MA</span></sc-if></span>
+              <span>{{ day.hours }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div data-reveal="2" style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-size:18px;font-weight:700;letter-spacing:.14em;color:#a39b8f;">TELEFON</div>
+        <a href="tel:+36705824111" style="font-family:'Anton',sans-serif;font-size:clamp(44px,5vw,60px);line-height:1;color:#f4efe6;">70 582 4111</a>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <a href="tel:+36705824111" style="background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.04em;padding:12px 22px;">HÍVÁS</a>
+          <button onClick="{{ copyPhone }}" style="background:transparent;border:2px solid #f4efe6;color:#f4efe6;font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.04em;padding:10px 20px;cursor:pointer;">{{ copyLabel }}</button>
+        </div>
+        <div style="margin-top:18px;font-size:18px;font-weight:700;letter-spacing:.14em;color:#a39b8f;">CÍM</div>
+        <div style="font-family:'Anton',sans-serif;font-size:28px;line-height:1.1;">Gyöngyös,<br>Jókai Mór utca 38.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div style="background:#FFC21A;transform:rotate(1.5deg);margin:24px -20px 0;padding:12px 0;border-top:3px solid #0b0a09;border-bottom:3px solid #0b0a09;overflow:hidden;">
+    {{ marquee2 }}
+  </div>
+
+  <footer style="max-width:1240px;margin:0 auto;padding:40px clamp(18px,4vw,40px) 64px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;">
+    <div style="font-family:'Caveat Brush',cursive;font-size:clamp(34px,5vw,58px);line-height:1.1;transform:rotate(-2deg);">Várunk titeket pénteken 11:00-tól!</div>
+    <div style="width:120px;height:4px;background:#FFC21A;"></div>
+    <a href="https://www.facebook.com/profile.php?id=61594434387252" target="_blank" rel="noopener" style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.06em;color:#FFC21A;">KÖVESS MINKET A FACEBOOKON ↗</a>
+    <div style="font-size:16px;font-weight:600;letter-spacing:.12em;color:#8a8276;">GYROSGO · GYROS • SMASH BURGER · GYÖNGYÖS</div>
+  </footer>
+
+  <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:#0b0a09;border-top:3px solid #FFC21A;">
+      <a href="tel:+36705824111" style="display:flex;align-items:center;justify-content:center;min-height:52px;background:#FFC21A;color:#0b0a09;font-family:'Anton',sans-serif;font-size:21px;letter-spacing:.05em;">HÍVÁS</a>
+      <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Gy%C3%B6ngy%C3%B6s%2C%20J%C3%B3kai%20M%C3%B3r%20utca%2038" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;min-height:52px;background:#E3261C;color:#fff;font-family:'Anton',sans-serif;font-size:21px;letter-spacing:.05em;">ÚTVONAL</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;simDate&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;valós idő&quot;,&quot;okt. 1. (csütörtök)&quot;,&quot;okt. 2. 10:00&quot;,&quot;okt. 2. 14:00&quot;,&quot;okt. 5. (hétfő)&quot;],&quot;default&quot;:&quot;valós idő&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Állapotjelző&quot;},&quot;showDemoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Demó&quot;},&quot;tilt&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mozgás&quot;}}">
+class Component extends DCLogic {
+  state = { mobile: false, copied: false };
+  rootRef = React.createRef();
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width:719px)');
+    this.onResize = () => { const w = window.innerWidth; this.setState({ mobile: w > 0 ? this.mq.matches : false }); };
+    this.mq.addEventListener ? this.mq.addEventListener('change', this.onResize) : this.mq.addListener(this.onResize);
+    window.addEventListener('resize', this.onResize);
+    this.onVis = () => { this.onResize(); this.onCheck && this.onCheck(); };
+    document.addEventListener('visibilitychange', this.onVis);
+    this.onResize();
+    this.timer = setInterval(() => this.forceUpdate(), 1000);
+    this.applyAnims();
+    this.setupReveal();
+    this.setupCards();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    clearInterval(this.timer);
+    clearTimeout(this.safety);
+    document.removeEventListener('visibilitychange', this.onVis);
+    if (this.mq) this.mq.removeEventListener ? this.mq.removeEventListener('change', this.onResize) : this.mq.removeListener(this.onResize);
+    this.io && this.io.disconnect();
+    this.cio && this.cio.disconnect();
+    if (this.onCheck) { window.removeEventListener('scroll', this.onCheck, true); window.removeEventListener('resize', this.onCheck); }
+  }
+  applyAnims() {
+    const root = this.rootRef.current; if (!root) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    root.querySelectorAll('[data-anim]').forEach(el => { el.style.animation = el.dataset.anim; });
+  }
+  confetti = e => {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const cols = ['#FFC21A', '#E3261C', '#f4efe6', '#1877F2'];
+    for (let i = 0; i < 46; i++) {
+      const p = document.createElement('div');
+      const w = 6 + Math.random() * 8;
+      Object.assign(p.style, { position: 'fixed', left: cx + 'px', top: cy + 'px', width: w + 'px', height: w * 0.5 + 'px', background: cols[i % 4], zIndex: 100, pointerEvents: 'none' });
+      document.body.appendChild(p);
+      const a = Math.random() * Math.PI * 2, d = 120 + Math.random() * 220;
+      const dx = Math.cos(a) * d, dy = Math.sin(a) * d - 120;
+      const anim = p.animate([
+        { transform: 'translate(-50%,-50%) rotate(0deg)', opacity: 1 },
+        { transform: `translate(${dx}px,${dy}px) rotate(${Math.random() * 720 - 360}deg)`, opacity: 1, offset: 0.6 },
+        { transform: `translate(${dx * 1.1}px,${dy + 220}px) rotate(${Math.random() * 900}deg)`, opacity: 0 }
+      ], { duration: 1300 + Math.random() * 600, easing: 'cubic-bezier(.15,.7,.3,1)' });
+      anim.onfinish = () => p.remove();
+    }
+  };
+  setupReveal() {
+    const root = this.rootRef.current; if (!root) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !window.innerHeight || document.visibilityState === 'hidden') return;
+    const pending = new Set([...root.querySelectorAll('[data-reveal]')].filter(el => el.getBoundingClientRect().top > window.innerHeight * 0.92));
+    const show = el => {
+      if (!pending.has(el)) return;
+      pending.delete(el);
+      el.style.transitionDelay = (Number(el.dataset.reveal) * 120) + 'ms';
+      el.style.opacity = '1'; el.style.transform = 'none';
+      this.io && this.io.unobserve(el);
+    };
+    const inView = el => { const r = el.getBoundingClientRect(); return r.top < window.innerHeight * 0.92 && r.bottom > 0; };
+    this.onCheck = () => pending.forEach(el => inView(el) && show(el));
+    pending.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(48px) rotate(-1.5deg)';
+      el.style.transition = 'opacity .7s ease, transform .8s cubic-bezier(.2,.8,.2,1)';
+    });
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver(es => es.forEach(en => en.isIntersecting && show(en.target)), { threshold: 0.15 });
+      pending.forEach(el => this.io.observe(el));
+    }
+    window.addEventListener('scroll', this.onCheck, { passive: true, capture: true });
+    window.addEventListener('resize', this.onCheck);
+    requestAnimationFrame(this.onCheck);
+    this.safety = setTimeout(() => pending.forEach(show), 2000);
+  }
+
+  getNow() {
+    const s = this.props.simDate ?? 'valós idő';
+    const m = { 'okt. 1. (csütörtök)': [1, 15], 'okt. 2. 10:00': [2, 10], 'okt. 2. 14:00': [2, 14], 'okt. 5. (hétfő)': [5, 13] }[s];
+    return m ? new Date(2026, 9, m[0], m[1], 0) : new Date();
+  }
+
+  status(now) {
+    const day = d => new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+    const open = new Date(2026, 9, 2).getTime();
+    const today = day(now), h = now.getHours();
+    if (today < open) {
+      if (open - today === 86400000) return { text: 'Holnap, pénteken 11:00-tól nyitunk', live: false };
+      return { text: 'Október 2-án, pénteken 11:00-tól nyitunk', live: false };
+    }
+    if (today === open) {
+      if (h < 11) return { text: 'Ma 11:00-tól nyitunk! Ma él a nyitási akció', live: false };
+      return { text: 'Nyitva! Ma él a nyitási akció', live: true };
+    }
+    if (h < 11) return { text: 'Ma 11:00-kor nyitunk · Nyitva mindennap', live: false };
+    return { text: 'Nyitva · Mindennap 11:00-tól', live: true };
+  }
+
+  tiltMove = e => {
+    if (this.props.tilt === false) return;
+    const el = e.currentTarget, r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 8).toFixed(2)}deg) translateY(-4px)`;
+  };
+  tiltLeave = e => { e.currentTarget.style.transform = ''; };
+
+  cardMove = e => {
+    if (this.props.tilt === false || (e.nativeEvent && e.nativeEvent.pointerType && e.nativeEvent.pointerType !== 'mouse')) return;
+    const c = e.currentTarget, r = c.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    c.style.transform = `perspective(900px) rotateY(${(x * 7).toFixed(2)}deg) rotateX(${(-y * 7).toFixed(2)}deg) translateY(-4px)`;
+    c.style.borderColor = '#FFC21A';
+    const img = c.querySelector('[data-zoom]'); if (img) img.style.transform = 'scale(1.08) rotate(-1deg)';
+  };
+  cardLeave = e => {
+    const c = e.currentTarget; c.style.transform = ''; c.style.borderColor = '';
+    const img = c.querySelector('[data-zoom]'); if (img) img.style.transform = '';
+  };
+  setupCards() {
+    const root = this.rootRef.current; if (!root || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const play = c => {
+      const d = Number(c.dataset.card) * 120;
+      c.animate([{ transform: 'translateY(28px) rotate(1deg)' }, { transform: 'none' }], { duration: 700, delay: d, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' });
+      const s = c.querySelector('[data-strike]');
+      if (s) s.animate([{ transform: 'rotate(-8deg) scaleX(0)' }, { transform: 'rotate(-8deg) scaleX(1)' }], { duration: 700, delay: d + 350, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'backwards' });
+    };
+    this.cio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { play(en.target); this.cio.unobserve(en.target); } }), { threshold: 0.3 });
+    root.querySelectorAll('[data-card]').forEach(c => this.cio.observe(c));
+  }
+
+  copyPhone = () => {
+    const done = () => { this.setState({ copied: true }); clearTimeout(this.ct); this.ct = setTimeout(() => this.setState({ copied: false }), 1800); };
+    try { navigator.clipboard.writeText('+36 70 582 4111').then(done, done); } catch (e) { done(); }
+  };
+
+  renderVals() {
+    const now = this.getNow();
+    const st = this.status(now);
+    const todayIdx = (now.getDay() + 6) % 7;
+    const names = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap'];
+    const days = names.map((name, i) => {
+      const t = i === todayIdx;
+      return { name, isToday: t, hours: '11:00-tól', bg: t ? '#FFC21A' : 'transparent', color: t ? '#0b0a09' : '#f4efe6', weight: t ? 800 : 600 };
+    });
+    const promoExpired = now.getTime() >= new Date(2026, 9, 3).getTime();
+    const mk = (chunk, color, anim) => React.createElement('div', {
+      style: { display: 'flex', width: 'max-content', whiteSpace: 'pre', fontFamily: "'Anton',sans-serif", fontSize: 'clamp(22px,3vw,32px)', letterSpacing: '.03em', color, animation: anim }
+    }, React.createElement('span', { key: 'a' }, chunk + chunk), React.createElement('span', { key: 'b' }, chunk + chunk));
+    const marquee = mk('NYITÁSI AKCIÓ – CSAK OKTÓBER 2-ÁN!  ★  GYROS PITA 1 290 FT  ★  GYROS TÁL 2 290 FT  ★  SMASH BURGER 1 490 FT  ★  NYEREMÉNYJÁTÉK  ★  ', '#fff', 'gg-marquee 28s linear infinite');
+    const marquee2 = mk('FINOM, GYORS, GO!  ●  GYROS  ●  SMASH BURGER  ●  HASÁB  ●  ÜDÍTŐ  ●  GYÖNGYÖS, JÓKAI MÓR UTCA 38.  ●  ', '#0b0a09', 'gg-marquee-r 32s linear infinite');
+
+    const target = new Date(2026, 9, 2, 11, 0, 0).getTime();
+    const left = Math.max(0, Math.floor((target - now.getTime()) / 1000));
+    const pad = n => String(n).padStart(2, '0');
+    const cd = { h: pad(Math.floor(left / 3600)), m: pad(Math.floor(left / 60) % 60), s: pad(left % 60) };
+    const cdSec = React.createElement('span', { key: cd.s, style: { fontFamily: "'Anton',sans-serif", fontSize: 36, lineHeight: 1, color: '#fff', display: 'block', animation: 'gg-tick .35s cubic-bezier(.3,1.5,.5,1)' } }, cd.s);
+
+    if (!this._embers) {
+      const cols = ['#FFC21A', '#ff9a1a', '#E3261C'];
+      this._embers = Array.from({ length: 22 }, (_, i) => ({
+        left: Math.random() * 100, size: 3 + Math.random() * 5, dur: 5 + Math.random() * 6, delay: -Math.random() * 10,
+        dx: (Math.random() * 120 - 60) + 'px', c: cols[i % 3]
+      }));
+    }
+    const embers = React.createElement('div', { 'aria-hidden': true, style: { position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: -1 } },
+      this._embers.map((p, i) => React.createElement('span', { key: i, style: {
+        position: 'absolute', left: p.left + '%', bottom: -10, width: p.size, height: p.size, borderRadius: '50%', background: p.c,
+        boxShadow: `0 0 ${p.size * 2}px ${p.c}`, '--dx': p.dx, animation: `gg-ember ${p.dur}s linear ${p.delay}s infinite`
+      } })));
+
+    const nyitunk = 'NYITUNK!'.split('').map((ch, i) => React.createElement('span', { key: i, style: {
+      display: 'inline-block', color: ch === '!' ? '#FFC21A' : undefined,
+      animation: `gg-drop .8s cubic-bezier(.3,1.6,.5,1) ${i * 0.08}s both, gg-wave 2.8s ease-in-out ${1.4 + i * 0.12}s infinite`
+    } }, ch));
+
+    const logoArt = React.createElement('div', { style: { position: 'relative', width: '100%', maxWidth: 520, aspectRatio: '1' } },
+      React.createElement('div', { key: 'rays', 'aria-hidden': true, style: {
+        position: 'absolute', inset: '-10%', borderRadius: '50%',
+        background: 'repeating-conic-gradient(from 0deg, rgba(255,194,26,.22) 0deg 5deg, transparent 5deg 24deg)',
+        WebkitMaskImage: 'radial-gradient(circle, #000 28%, transparent 70%)', maskImage: 'radial-gradient(circle, #000 28%, transparent 70%)',
+        animation: 'gg-spin 48s linear infinite'
+      } }),
+      React.createElement('img', { key: 'img', src: 'assets/logo.png', alt: 'GyrosGO – Gyros • Smash Burger', style: {
+        position: 'relative', width: '100%', height: 'auto', display: 'block', mixBlendMode: 'lighten', animation: 'gg-float 5s ease-in-out infinite'
+      } }));
+    const statusDot = React.createElement('span', {
+      style: { width: 10, height: 10, borderRadius: '50%', flex: 'none', background: st.live ? '#1a9e3f' : '#E3261C', animation: 'gg-pulse 1.4s ease-in-out infinite' }
+    });
+    return {
+      rootRef: this.rootRef,
+      showDemoBar: this.props.showDemoBar ?? true,
+      statusText: st.text, statusDot, marquee, marquee2, days, promoExpired,
+      embers, nyitunk, logoArt, cd, cdSec, showCountdown: left > 0, confetti: this.confetti,
+      mobile: this.state.mobile,
+      bottomPad: this.state.mobile ? '84px' : '0px',
+      tiltMove: this.tiltMove, tiltLeave: this.tiltLeave, cardMove: this.cardMove, cardLeave: this.cardLeave,
+      copyPhone: this.copyPhone,
+      copyLabel: this.state.copied ? 'MÁSOLVA ✓' : 'SZÁM MÁSOLÁSA'
+    };
+  }
+}
+</script>
+</body>
+</html>
